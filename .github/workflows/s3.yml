@@ -5,7 +5,7 @@ on:
     branches: [ main ]
 
 jobs:
-  Setup:
+  Upload_S3:
     runs-on: ubuntu-latest
     steps:
       - name: CheckOut
@@ -19,5 +19,5 @@ jobs:
           aws-region: 'us-east-1' #${{ secrets.AWS_REGION }}
       
       - name: Upload S3 Files
-        run: aws s3 sync ./htmlbuild s3://deploy-thieslei
+        run: aws s3 sync ./htmlbuild s3://deploy-thieslei/htmlbuild
 
