@@ -7,6 +7,7 @@ on:
 env:
   AWS_REGION: us-east-1
   BUCKET_NAME: deploy-thieslei
+  BUCKET_FOLDER: htmlbuild
 
 
 jobs:
@@ -24,5 +25,5 @@ jobs:
           aws-region: ${{ env.AWS_REGION }}
       
       - name: Upload S3 Files
-        run: aws s3 sync ./htmlbuild s3://${{ env.BUCKET_NAME }}/htmlbuild --acl public-read
+        run: aws s3 sync ./htmlbuild s3://${{ env.BUCKET_NAME }}/${{ env.BUCKET_FOLDER }} --acl public-read
 
